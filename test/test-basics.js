@@ -21,6 +21,6 @@ test('obj and array with links', t => {
 
   let buffer = cbor.serialize(node)
   let ret = Array.from(links(buffer))
-  t.same(ret[0], {path: 'mylink', cid: new CID(_cid)})
-  t.same(ret[1], {path: 'myarray/0', cid: new CID(_cid)})
+  t.same(ret[0], ['mylink', new CID(_cid)])
+  t.same(ret[1], ['myarray/0', new CID(_cid)])
 })
