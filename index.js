@@ -1,20 +1,13 @@
 const createCBOR = require('dag-cbor-sync')
-const cbor = createCBOR()
+const cbor = createCBOR(1e+6)
 const CID = require('cids')
 
-const links = (obj, maxsize, path = []) => {
+const links = (obj, path = []) => {
   if (Buffer.isBuffer(obj)) {
-    try {
-      obj = cbor.deserialize(obj)
-    } catch (e) {
-      obj = createCBOR(1e+7).deserialize(obj)
-      console.error(Object.keys(obj).length)
-      throw e
-    }
-
+    obj = cbor.deserialize(obj)
   }
   return (function * () {
-    for (let key in obj) {
+    for (let key of Object.keys(obj)) {
       let _path = path.slice()
       _path.push(key)
       let val = obj[key]
@@ -29,11 +22,10 @@ const links = (obj, maxsize, path = []) => {
             }
           }
         } else {
-          if (val['/']) yield [ _path.join('/'), new CID(val['/'])]
-          else {
-            for (let link of links(val, maxsize, _path)) {
-              yield link
-            }
+          if (val['/']) {
+            yield [ _path.join('/'), new CID(val['/'])]
+          } else {
+            yield* links(val, _path)
           }
         }
       }

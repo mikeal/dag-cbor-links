@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tap test/test-*.js"
   },
   "keywords": [],
   "author": "Mikeal Rogers <mikeal.rogers@gmail.com> (http://www.mikealrogers.com)",
   "license": "Apache-2.0",
   "dependencies": {
     "cids": "^0.5.3",
-    "dag-cbor-sync": "^0.1.0"
+    "dag-cbor-sync": "^0.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.5",
