@@ -19,6 +19,8 @@ const links = (obj, path = []) => {
             let o = val[i]
             if (CID.isCID(o)) {
               yield [__path.join('/'), o]
+            } else if (typeof o === 'object') {
+              yield * links(o, _path)
             }
           }
         } else {
