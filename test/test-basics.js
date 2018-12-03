@@ -11,16 +11,14 @@ test('no links', t => {
 
 test('obj and array with links', t => {
   t.plan(2)
-  let _cid = 'zdpuAkv7jA671owT26AnJiFXG9usHmCAW6MTzpwFJw46X1PLG'
+  let _cid = new CID('zdpuAkv7jA671owT26AnJiFXG9usHmCAW6MTzpwFJw46X1PLG')
   let node = {
-    mylink: {'/': _cid},
-    myarray: [
-      {'/': _cid}
-    ]
+    mylink: _cid,
+    myarray: [ _cid ]
   }
 
   let buffer = cbor.serialize(node)
   let ret = Array.from(links(buffer))
-  t.same(ret[0], ['mylink', new CID(_cid)])
-  t.same(ret[1], ['myarray/0', new CID(_cid)])
+  t.same(ret[0], ['mylink', _cid])
+  t.same(ret[1], ['myarray/0', _cid])
 })

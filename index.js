@@ -17,15 +17,15 @@ const links = (obj, path = []) => {
             let __path = _path.slice()
             __path.push(i)
             let o = val[i]
-            if (typeof o === 'object' && o['/']) {
-              yield [__path.join('/'), new CID(o['/'])]
+            if (CID.isCID(o)) {
+              yield [__path.join('/'), o]
             }
           }
         } else {
-          if (val['/']) {
-            yield [ _path.join('/'), new CID(val['/'])]
+          if (CID.isCID(val)) {
+            yield [_path.join('/'), val]
           } else {
-            yield* links(val, _path)
+            yield * links(val, _path)
           }
         }
       }

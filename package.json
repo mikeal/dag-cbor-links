@@ -10,8 +10,8 @@
   "author": "Mikeal Rogers <mikeal.rogers@gmail.com> (http://www.mikealrogers.com)",
   "license": "Apache-2.0",
   "dependencies": {
-    "cids": "^0.5.3",
-    "dag-cbor-sync": "^0.2.0"
+    "cids": "^0.5.6",
+    "dag-cbor-sync": "^0.6.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.5",
