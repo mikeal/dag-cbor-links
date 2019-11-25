@@ -11,7 +11,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "cids": "^0.7.1",
-    "dag-cbor-sync": "^0.6.0"
+    "dag-cbor-sync": "github:alanshaw/dag-cbor-sync#chore/update-deps"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
