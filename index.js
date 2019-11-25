@@ -11,7 +11,7 @@ const links = (obj, path = []) => {
       let _path = path.slice()
       _path.push(key)
       let val = obj[key]
-      if (typeof val === 'object') {
+      if (val && typeof val === 'object') {
         if (Array.isArray(val)) {
           for (let i = 0; i < val.length; i++) {
             let __path = _path.slice()

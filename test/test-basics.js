@@ -11,10 +11,11 @@ test('no links', t => {
 
 test('obj and array with links', t => {
   t.plan(2)
-  let _cid = new CID('zdpuAkv7jA671owT26AnJiFXG9usHmCAW6MTzpwFJw46X1PLG')
+  let _cid = new CID('bafyreiahlcrtsoo5g5cdpwf5t76zgc5ulcxruzftrkuf3wqzo4stzrmagu')
   let node = {
     mylink: _cid,
-    myarray: [ _cid ]
+    myarray: [ _cid ],
+    mynull: null
   }
 
   let buffer = cbor.serialize(node)
