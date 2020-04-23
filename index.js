@@ -1,5 +1,4 @@
-const createCBOR = require('dag-cbor-sync')
-const cbor = createCBOR(1e+6)
+const cbor = require('ipld-dag-cbor').util
 const CID = require('cids')
 
 const links = (obj, path = []) => {

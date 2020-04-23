@@ -1,4 +1,4 @@
-const cbor = require('dag-cbor-sync')()
+const cbor = require('ipld-dag-cbor').util
 const links = require('../')
 const {test} = require('tap')
 const CID = require('cids')
