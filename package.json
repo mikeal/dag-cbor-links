@@ -10,7 +10,7 @@
   "author": "Mikeal Rogers <mikeal.rogers@gmail.com> (http://www.mikealrogers.com)",
   "license": "Apache-2.0",
   "dependencies": {
-    "cids": "^0.7.1",
+    "cids": "^0.8.0",
     "ipld-dag-cbor": "^0.15.2"
   },
   "devDependencies": {
