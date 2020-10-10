@@ -1,8 +1,8 @@
 const cbor = require('ipld-dag-cbor').util
 const CID = require('cids')
 
-const links = (obj, path = []) => {
-  if (Buffer.isBuffer(obj)) {
+const links = (obj, path = [], parseBuffer=true) => {
+  if (parseBuffer && Buffer.isBuffer(obj)) {
     obj = cbor.deserialize(obj)
   }
   return (function * () {
@@ -19,14 +19,14 @@ const links = (obj, path = []) => {
             if (CID.isCID(o)) {
               yield [__path.join('/'), o]
             } else if (typeof o === 'object') {
-              yield * links(o, _path)
+              yield * links(o, _path, false)
             }
           }
         } else {
           if (CID.isCID(val)) {
             yield [_path.join('/'), val]
           } else {
-            yield * links(val, _path)
+            yield * links(val, _path, false)
           }
         }
       }
